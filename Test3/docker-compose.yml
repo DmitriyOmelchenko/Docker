@@ -1,16 +1,13 @@
 version: '3'
 services:
-      mysql:
+      db:
         image: mysql/mysql-server
-        ports:
-         - 8081:8081
 
-      phpmyadmin :
-        image:  phpmyadmin/phpmyadmin
-        ports: 
+      phpmyadmin:
+        image: phpmyadmin/phpmyadmin
+        ports:
          - 8080:80
         environment:
-            PMA_HOST: "mysql"
-            PMA_PORT: "8081"
+          MYSQL_ROOT_PASSWORD: 123Admin
         depends_on:
-            - mysql
+            - db
